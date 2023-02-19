@@ -1,56 +1,62 @@
 #include <iostream>
 #include <unistd.h>
-#include <climits>
+#include <algorithm>
+#include <stdlib.h>
 
 
-int main() {
-	int n;
-	/* Get the array */
-	std::cout << "Enter the size of the array: ";
-	std::cin >> n;
+/* parent subroutine */
+int parentMaxValue( int *arr, int n ) {
+	int maxVal = arr[0];
+	for( int i = 0; i < n; i++ ) {
+		maxVal = std::max( maxVal, arr[i] );
+	}
+	return maxVal;
+}
 
+/* child subroutine */
+int childMinValue( int *arr, int n ) {
+	int minVal = arr[0];
+	for( int i = 0; i < n; i++ ) {
+		minVal = std::min( minVal, arr[i] );
+	}
+	return minVal;
+}
+
+/* driver main function */
+int main( int argc, char **argv ) {
+	if( argc != 2 ) {
+		std::cout << "USAGE: ./zmb <arraySize>" << std::endl;
+		exit(0);
+	}
+	
+	/* get user input */ 
+	int n = atoi(argv[1]);
 	int arr[n];
 	for( int i = 0; i < n; i++ ) {
 		std::cout << "arr[" << i << "]: ";
 		std::cin >> arr[i];
 	}
 
-	/* Creating child process using fork()*/
-	pid_t chPid = fork();
-
-	/* Displaying process */
-	if( chPid > 0 ) {
-		std::cout << "PARENT PROCESS RUNNING WITH PID " << getpid() << std::endl;
-		int maxVal = INT_MIN;
-		
-		/* Get the maximum value */
-		for( int i = 0; i < n; i++ ) {
-			maxVal = std::max(maxVal, arr[i]);
-		}
-		std::cout << "THE MAX VALUE IS: " << maxVal << std::endl;
-		std::cout << std::endl;
-		/*Parent process terminating immediately */
-		sleep(30);
-	}
+	/* creating processes */
+	pid_t pid = fork();
 	
-	else if( chPid == 0 ) {
-		std::cout << "CHILD PROCESS RUNNING WITH PID " << getpid()
-			<< "\nAND HAS PARENT PID " << getppid() << std::endl;
-				int minVal = INT_MAX;
-
-		/* Get the minimum value */
-		for( int i = 0; i < n; i++ ) {
-			minVal = std::min(minVal, arr[i]);
-		}
-
-		std::cout << "THE MIN VALUE IS: " << minVal << std::endl;
-		std::cout << std::endl;
-		exit(0);
+	/* creating zombie processes */
+	if( pid < 0 ) {
+		std::cout << "[ERROR] Process creation failed" << std::endl;
 	}
-
+	else if( pid > 0 ) {
+		std::cout << "PARENT PROCESS RUNNING WITH PID " << getpid() << std::endl;
+		std::cout << "MAX VALUE: " << parentMaxValue( arr, n ) << std::endl << std::endl;
+		/* parent is put to sleep so that
+		 * it does not recieve the return code of
+		 * the child even when it has terminated
+		 * threby creating a zombie process*/
+		sleep(20);
+	}
+	else if( pid == 0 ) {
+		std::cout << "CHILD PROCESS RUNNING WITH PID " << getpid()
+			<< "WITH PARENT PID " << getppid() << std::endl;
+		std::cout << "MIN VALUE: " << childMinValue( arr, n ) << std::endl << std::endl;
+	}
 	return 0;
-
-
-
-
 }
