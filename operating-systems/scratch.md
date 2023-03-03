@@ -20,3 +20,9 @@ else if(p > 0) {
 ```
 
 The parent process sleeps for 50 seconds after the child process terminates, so it does not get the status of the child process and hence for those sleep time, the child process remains in the process table despite being already executed and terminated.
+
+
+### ASSIGNMENT 4
+
+Objective: Make a terminal emulator which will execute some commands
+
