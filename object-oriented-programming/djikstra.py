@@ -4,14 +4,12 @@ class Djikstra:
     adj_matrix = []
     def __init__(self, n):
         self.vertices = n
-        print("Provide the adjacency matrix: ")
+        print("Provide the distance matrix: ")
         for i in range(n):
             k = [int(x) for x in input().split(" ")]
             Djikstra.adj_matrix.append(k)
             k = []
-    
-    def display_matrix(self):
-        print(Djikstra.adj_matrix)
+
 
     def index_with_min_dist(self, distance, visited) -> int:
         #
@@ -26,14 +24,16 @@ class Djikstra:
                 min_idx = v
         return min_idx
     
-    def display_solution(self, src, distances):
+    def display_solution(self, src, destination, distances):
         # @params: source vertex[src], list of distances[distance]
-        print("Source -> Destination\tShortest Distance")
+        # print("Source -> Destination\tShortest Distance")
         for v in range(self.vertices):
-            if v != src:
-                print(f"{src} -> {v}\t\t\t{distances[v]}")
+            if v == destination:
+                print(f"\nCity {src} <---- {distances[v]} ----> City {destination}")
+                break
+        
     
-    def djikstra(self, src):
+    def djikstra(self, src, dest):
         #
         # @params: the source node[src]
         # @return: 2D array containing the shortest distance of each vertex from the source
@@ -50,17 +50,18 @@ class Djikstra:
                 if Djikstra.adj_matrix[mindex][x] > 0 and visited[x] == False and distances[x] > distances[mindex] +  Djikstra.adj_matrix[mindex][x]:
                     distances[x] = distances[mindex] + Djikstra.adj_matrix[mindex][x]
 
-            
-        self.display_solution(src, distances)
+        # print(distances)
+        self.display_solution(src, dest, distances)
 
 
 
 def main():
     n = int(input("How many vertices?: "))
     djk = Djikstra(n)
-    djk.display_matrix()
+    # djk.display_matrix()
     src = int(input("Choose the source: "))
-    djk.djikstra(src)
+    dest = int(input("Choose the destination: "))
+    djk.djikstra(src, dest)
 
 if __name__ == "__main__":
     main()
