@@ -1,1 +1,1 @@
-# college-codes
+# COLLEGE CODES
