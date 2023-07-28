@@ -1,0 +1,19 @@
+
+; *** Problem statement ***
+; [PROB.2] TWO 8 BIT NUMBERS ARE STORED IN MEMORY LOCATIONS 8C00H AND 8C01H.
+; PERFORM ADDITION AND STORE THE RESULT IN 8C02H.
+
+jmp start
+
+;data
+
+
+;code
+start: nop
+	LDA 8C00H
+	MOV B, A
+	LDA 8C01H
+	ADD B
+	STA 8C02H
+	
+	HLT
