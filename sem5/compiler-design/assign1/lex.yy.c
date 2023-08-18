@@ -1,5 +1,5 @@
 
-#line 3 "lex.yy.c"
+#line 2 "lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -457,8 +457,8 @@ int lparen=0;
 int rparen=0;
 int equal=0;
 int decimal_num=0;
+#line 460 "lex.yy.c"
 #line 461 "lex.yy.c"
-#line 462 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -677,7 +677,7 @@ YY_DECL
 	{
 #line 16 "prog.l"
 
-#line 681 "lex.yy.c"
+#line 680 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -784,7 +784,7 @@ YY_RULE_SETUP
 #line 26 "prog.l"
 ECHO;
 	YY_BREAK
-#line 788 "lex.yy.c"
+#line 787 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1791,13 +1791,13 @@ void yyfree (void * ptr )
 
 #line 26 "prog.l"
 
-  
-/*** use code section ***/
-  
-int main()                                              
+
+  /*** use code section ***/
+
+int main()
 {
-   
-  yylex(); 
+
+  yylex();
   printf("+--------------+\n");
   printf("LPAREN = %d\n", lparen);
   printf("RPAREN = %d\n", rparen);
@@ -1808,5 +1808,5 @@ int main()
   printf("NUMBER = %d\n", number);
   printf("MULTIPLICATION = %d\n", multiplication);
   printf("+--------------+\n");
-  return 0; 
+  return 0;
 }

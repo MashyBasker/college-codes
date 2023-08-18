@@ -1,0 +1,25 @@
+
+
+;<PROBLEM 4>
+;data
+
+
+
+;code
+start: nop
+LXI H, 8C00H
+MOV B, M
+INX H
+MOV D, M
+MVI C, 00H
+LOOP: ADD D
+JNC NEXT
+INR C
+NEXT: DCR B
+JNZ LOOP
+INX H
+MOV M, A
+INX H
+MOV M, C
+HLT
+hlt

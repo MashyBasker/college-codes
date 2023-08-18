@@ -12,10 +12,10 @@ int rparen=0;
 int equal=0;
 int decimal_num=0;
 %}
-   
+
 %%
 [(] {lparen++;printf("<LPAREN>");} /* Identifying left parentheses */
-[)] {rparen++;printf("<RPAREN>");} /* Identifying right parentheses */
+    [)] {rparen++;printf("<RPAREN>");} /* Identifying right parentheses */
 [=] {equal++;printf("<EQUAL>");}   /* Identifying equal sign */
 [/] {division++;printf("<DIV>");}  /* Identifying division symbol */
 [*] {multiplication++;printf("<MULT>");} /* Identifying multiplication symbol */
@@ -23,14 +23,14 @@ int decimal_num=0;
 [-] {minus++;printf("<MINUS>");}  /* Identifying minus symbol */
 [0-9]* {number++;printf("<NUMBER>");} /* Identifying numbers */
 [0-9]*[.][0-9]* {decimal_num++;printf("<DECIMAL NUMBER>");} /* Identifying decimal numbers */
-%% 
-  
-/*** use code section ***/
-  
-int main()                                              
+%%
+
+  /*** use code section ***/
+
+int main()
 {
-   
-  yylex(); 
+
+  yylex();
   printf("+--------------+\n");
   printf("LPAREN = %d\n", lparen);
   printf("RPAREN = %d\n", rparen);
@@ -41,5 +41,5 @@ int main()
   printf("NUMBER = %d\n", number);
   printf("MULTIPLICATION = %d\n", multiplication);
   printf("+--------------+\n");
-  return 0; 
+  return 0;
 }

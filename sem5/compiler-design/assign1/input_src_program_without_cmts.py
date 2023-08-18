@@ -1,0 +1,9 @@
+number = int(input('Enter no. of random variables you need: '))
+low = int(input('Enter the low range: '))
+high = int(input('Enter the high range: '))
+random_number_list = []
+    number = int(input('Enter no. of random variables you need: '))
+    low = int(input('Enter the low range: '))
+    high = int(input('Enter the high range: '))
+    random_number = random.randint(low, high)
+        random_number = random.randint(low, high)
