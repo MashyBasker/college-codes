@@ -1,0 +1,82 @@
+The database uses CSV files to store the data for efficient storage and retrieval
+
+To run the code:
+$ python app.py
+
+To perform operations, use the commands as described below.
+
+NEW
+---
+
+This command is used for creating a new database/CSV file. 
+
+<Example usage>:
+
+db> new <filename>
+
+INSERT
+------
+
+To insert a new record to the database, use the "insert" command and keep the data comma seperated
+
+<Example usage>:
+
+db> insert <filename> Rahul,6,CSE/21055,01/02/2002,8.1,1234567890
+
+UPDATE
+------
+
+To update records based on certain conditions.
+
+<Example usage>:
+
+db> update <filename> Semester:8,CGPA:8.5|Name:Rakesh,Roll:CSE/23059
+
+Syntax for update query => <Attribute(s):New value(s)|<Condition(s)>
+In the above example, the semester and CGPA will be updated for the records containing the name "Rakesh" and the Roll Number "CSE/23059"
+
+The attribute name for each attribute are as follows:
+- [Name] -> to update the name of a record
+- [Semester] -> to update the semester of a record
+- [Roll] -> to update the Roll number of a record
+- [DoB] ->  to update the date of birth of a record
+- [CGPA] -> to update the CGPA of a record
+- [Contact] ->  to update the contact number of a record
+
+FETCH
+-----
+
+To fetch record attributes based on where clauses.
+
+<Example usage>:
+
+db> fetch <filename> Name,Contact|Semester:4
+
+Syntax for fetch query => <Attribute(s)>|<Condition(s)>
+
+The attribute name for each attribute are as follows:
+- [Name] -> to update the name of a record
+- [Semester] -> to update the semester of a record
+- [Roll] -> to update the Roll number of a record
+- [DoB] ->  to update the date of birth of a record
+- [CGPA] -> to update the CGPA of a record
+- [Contact] ->  to update the contact number of a record
+
+DELETE
+------
+
+To delete a record based on where clauses.
+
+<Example usage>:
+
+db> delete <filename> Name:Rakesh,Semester:7
+
+Syntax for delete query => <Condition(s)>
+
+The attribute name for each attribute are as follows:
+- [Name] -> to update the name of a record
+- [Semester] -> to update the semester of a record
+- [Roll] -> to update the Roll number of a record
+- [DoB] ->  to update the date of birth of a record
+- [CGPA] -> to update the CGPA of a record
+- [Contact] ->  to update the contact number of a record
