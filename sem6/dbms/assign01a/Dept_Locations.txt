@@ -1,0 +1,15 @@
+1	Kolkata
+2	Chennai
+3	Delhi
+4	Bangalore
+5	Kalyani
+6	Hyderabad
+7	Ahmedabad
+8	Pune
+9	Lucknow
+10	Jaipur
+11	Chandigarh
+12	Dehradun
+13	Patna
+14	Varanasi
+15	Mysuru

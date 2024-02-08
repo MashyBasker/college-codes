@@ -1,0 +1,15 @@
+HR	1	4321	2012-01-01
+IT	2	1098	2020-11-15
+Finance	3	5678	2003-02-10
+Marketing	4	8901	2022-10-05
+Operations	5	6789	2005-03-20
+Sales	6	1234	2010-12-12
+Research	7	7654	2015-04-25
+Administration	8	2345	2017-01-15
+Customer Service	9	8765	2016-09-30
+Production	10	7890	2022-03-05
+Quality Assurance	11	4567	2013-11-30
+Logistics	12	2109	2009-02-28
+Legal	13	5432	2022-01-20
+Facilities	14	8901	2023-12-05
+Information Security	15	6789	2015-04-10

@@ -1,0 +1,15 @@
+4567	\N	\N	\N	\N
+7890	Megha Gupta	F	2012-07-10	Daughter
+1234	Amit Singh	M	1950-12-01	Father
+5678	Sneha Singh	F	1955-06-20	Mother
+9876	\N	\N	\N	\N
+2345	Kavya Yadav	F	2013-09-05	Daughter
+8901	Priya Shah	F	1985-05-18	Wife
+3456	\N	\N	\N	\N
+6789	Riya Mishra	F	1992-02-15	Sister
+4321	Arjun Choudhary	M	1980-06-30	Father
+7654	Kirti Thakur	F	1983-09-02	Mother
+1098	Aryan Sharma	M	2018-12-10	Son
+8765	Divya Kumar	F	1989-08-15	Wife
+2109	Sahil Gupta	M	2012-01-08	Son
+5432	Pooja Rao	F	2014-04-25	Daughter

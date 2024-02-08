@@ -1,0 +1,111 @@
+-- Q1. Find the male employees whose first name contains “esh” at the end and work in project either “P-01” or "P-05".
+
+UPDATE
+Employee 
+SET Fname = 'Ramesh'
+WHERE 
+Fname = 'Arjun';
+
+SELECT E.`Fname`, E.`Lname` 
+FROM Employee E   
+JOIN
+`Department` D ON E.`Dno` = D.`Dnumber`
+JOIN
+`Project` P ON D.`Dnumber` = P.`Dnum`
+WHERE
+E.Fname LIKE '%esh' AND
+(P.`Pnumber` = 'P-01' OR P.Pnumber = 'P-05') AND E.Sex = 'M';
+
+
+-- Q2. Find the youngest ten employees in the organization whose working location is “Delhi”.
+SELECT E.Fname, E.Lname
+FROM Employee E   
+JOIN 
+Department D ON E.Dno = D.Dnumber 
+JOIN 
+Dept_Locations DL ON DL.Dnumber = D.Dnumber 
+WHERE DL.Dlocation = 'Delhi'
+ORDER BY DATEDIFF(CURDATE(), E.Bdate)
+LIMIT 10;
+
+-- Q3. Find the name of the manager(s) who supervises the maximum number of employees in the organization.
+SELECT E.Fname, E.Lname 
+FROM Employee E
+JOIN
+Department D ON E.Dno = D.Dnumber 
+GROUP BY E.Dno 
+HAVING COUNT(*) = (
+    SELECT COUNT(*)
+    FROM Employee E2
+    JOIN Department D2 ON E2.Dno = D2.Dnumber
+    GROUP BY E2.Dno
+    ORDER BY COUNT(*) DESC
+    LIMIT 1
+);
+
+-- Q4. Find the list of dependents for all employees working at “Delhi”.
+SELECT Dep.Dependent_name 
+FROM Dependent Dep
+JOIN 
+Employee E ON Dep.Essn = E.Ssn
+JOIN 
+Department d ON d.Mgr_ssn = E.Ssn 
+JOIN 
+Dept_Locations dl ON dl.Dnumber = d.Dnumber 
+WHERE dl.Dlocation = "Delhi";
+
+-- Q5. List the employees ordered by their DoB.
+SELECT Fname, Lname 
+FROM Employee 
+ORDER BY Bdate;
+
+-- Q6. List the employees with a salary > 50000 and group them by their department name.
+SELECT d.Dname, COUNT(*)  
+FROM 
+Employee E
+JOIN 
+Department d ON E.Dno = d.Dnumber 
+WHERE E.Salary > 10000
+GROUP BY d.Dname;
+
+-- change data to 50000
+
+-- Q7. Find the employee name with the 3rd highest salary.
+SELECT E.Fname, E.Lname  
+FROM 
+Employee E
+ORDER BY
+E.Salary 
+DESC LIMIT 1 OFFSET 2;
+
+
+-- Q8. Find all the employees who are not working on any project.
+SELECT e.Fname, e.Lname 
+FROM 
+Works_On wo
+JOIN 
+Employee e ON wo.Essn = e.Ssn 
+GROUP BY wo.Pno 
+HAVING COUNT(wo.Pno) = 0;
+
+-- add some data
+
+-- Q9. Report the project-wise count of employees sorted in descending order.
+
+SELECT wo.Pno, COUNT(wo.Pno)
+FROM 
+Works_On wo
+JOIN 
+Employee e ON wo.Essn = e.Ssn 
+GROUP BY wo.Pno;
+
+
+-- Q10. Find all the employees who are working exactly on one project.
+SELECT e.Fname, e.Lname 
+FROM 
+Works_On wo
+JOIN 
+Employee e ON wo.Essn = e.Ssn 
+GROUP BY wo.Pno 
+HAVING COUNT(wo.Pno) = 1;
+

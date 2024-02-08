@@ -1,0 +1,5 @@
+c,s,j,d,p,q,v
+c -> c,s,j,d,p,q,v
+s,d -> p
+j,p -> c
+j -> s

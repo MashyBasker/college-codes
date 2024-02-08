@@ -1,0 +1,15 @@
+Riya	S.	Sharma	4567	1998-05-20	Mumbai	F	30000	4321	3
+Aryan	K.	Verma	7890	2000-11-18	Chennai	M	28000	1098	2
+Nidhi	T.	Agarwal	1234	1995-08-25	Delhi	F	35000	5678	1
+Ravi	K.	Singh	5678	1992-04-30	Bangalore	M	40000	8901	1
+Sneha	R.	Patel	9876	1997-12-10	Kolkata	F	32000	6789	4
+Akash	P.	Yadav	2345	1994-02-05	Hyderabad	M	27000	1234	2
+Priya	R.	Shah	8901	1999-09-08	Ahmedabad	F	31000	4567	5
+Sameer	R.	Jain	3456	1996-06-15	Pune	M	38000	9876	3
+Anjali	A.	Mishra	6789	1993-01-22	Lucknow	F	31000	7654	7
+Rohit	S.	Choudhary	4321	1991-07-27	Jaipur	M	42000	2345	4
+Kirti	S.	Thakur	7654	1990-10-03	Chandigarh	F	33000	8765	6
+Arjun	A.	Sharma	1098	1998-03-08	Patna	M	26000	7890	1
+Divya	K.	Kumar	8765	1997-06-12	Varanasi	F	37000	4567	5
+Sahil	K.	Gupta	2109	1994-09-15	Dehradun	M	29500	6789	7
+Pooja	A.	Rao	5432	1996-12-20	Mysuru	F	31000	8901	3
