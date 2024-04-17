@@ -1,0 +1,6 @@
+T1, R, X
+T2, W, Y
+T1, W, Z
+T3, R, X
+T2, R, Z
+T3, W, Y

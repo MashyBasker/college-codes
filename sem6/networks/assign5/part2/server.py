@@ -18,11 +18,9 @@ while True:
     data = conn.recv(2048)
     if data.decode() == 'quit':
         break
-    c = data.decode() == data.decode()[::-1]
-    if c == True:
-        conn.send("Palindrome".encode())
-    else:
-        conn.send("Not Palindrome".encode())
+    # n = int(data.decode())
+    c = data.decode()[::-1]
+    conn.send(str(c).encode())
 
 print("connection closed by client")
 conn.close()

@@ -14,7 +14,7 @@ while True:
     if data == 'quit':
         break
     v = client.recv(2048).decode()
-    print(f"Verdict: {v}")
+    print(f"Reversed: {v}")
 
 print("Connection was closed by server")
 client.close()
