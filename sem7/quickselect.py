@@ -1,5 +1,33 @@
 #!/usr/bin/python3
 
+
+################# SMALLER CODE #####################
+import random
+
+def quickselect(arr, k):
+    """
+    Find the k-th smallest element in the array (0-indexed).
+    """
+    if len(arr) == 1:
+        return arr[0]
+
+    pivot = random.choice(arr)
+
+    # Partition array into three parts
+    lows = [el for el in arr if el < pivot]
+    highs = [el for el in arr if el > pivot]
+    pivots = [el for el in arr if el == pivot]
+
+    if k < len(lows):
+        return quickselect(lows, k)  # k-th smallest is in the lows
+    elif k < len(lows) + len(pivots):
+        return pivots[0]  # k-th smallest is a pivot element
+    else:
+        # k-th smallest is in the highs
+        return quickselect(highs, k - len(lows) - len(pivots))
+#####################################################
+
+
 from typing import List
 import random
 
@@ -45,4 +73,6 @@ if __name__ == "__main__":
     k = 3
     n = len(arr)
     print(f"{k}-th smallest element is: {select(arr, 0, n - 1, k - 1)}")
+
+
 

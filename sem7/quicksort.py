@@ -1,5 +1,24 @@
 #!/usr/bin/env python
 
+############################## SMALLER CODE ############################
+def quicksort(arr):
+    """
+    Sort the array using the Quicksort algorithm.
+    """
+    if len(arr) <= 1:
+        return arr
+
+    pivot = random.choice(arr)
+
+    # Partition array into three parts
+    lows = [el for el in arr if el < pivot]
+    highs = [el for el in arr if el > pivot]
+    pivots = [el for el in arr if el == pivot]
+
+    # Recursively sort lows and highs and concatenate
+    return quicksort(lows) + pivots + quicksort(highs)
+########################################################################
+
 from quickselect import median, swap
 from typing import List
 import random
